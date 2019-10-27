@@ -12,7 +12,10 @@ Included `main.c` is an example program demonstrating the functions
 
 Compiling the example:
 
-`gcc -g -I include src/mapmanagement.c main.c -o main.out -lrc`
+```c
+gcc -g -I include src/mapmanagement.c main.c -o main.out -lrc
+./main.out
+```
 
 ## Functions
 
