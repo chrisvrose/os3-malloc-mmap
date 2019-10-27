@@ -10,6 +10,8 @@ struct allocmem *newAllocMem();
 
 void* smalloc(size_t size);
 
+void* scalloc(size_t size,int nmemb);
+
 void sfree(void* ptr);
 
 void spurge();

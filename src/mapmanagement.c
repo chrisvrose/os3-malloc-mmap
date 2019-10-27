@@ -87,6 +87,26 @@ void* smalloc(size_t size){
     return NULL;
 }
 
+
+void* scalloc(size_t size,int nmemb){
+    size_t isOverFlow = size*nmemb;
+    if(size!=isOverFlow/nmemb){
+        ///Overflow, dont try
+        return NULL;
+    }
+    void* newPtr = smalloc(isOverFlow);
+    if(newPtr==NULL){
+        ///Failed to init
+        return NULL;
+    }
+    ///A character is a byte of data that can be managed
+    for(size_t loc = 0;loc<isOverFlow;loc++){
+        *(((char*)newPtr)+loc) = 0;
+    }
+    return newPtr;
+}
+
+
 void sfree(void* ptr){
     if(ptr==NULL)return;
     struct allocmem* info = find(memlocs,ptr);
