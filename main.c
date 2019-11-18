@@ -24,7 +24,7 @@ int main(){
         fflush(NULL);
     }
 
-    free(a);
+    sfree(a);
     spurge();
     return 0;
 }
