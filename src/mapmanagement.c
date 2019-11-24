@@ -74,7 +74,7 @@ void* smalloc(size_t size){
         return NULL;
     }
     void* ptr;
-    if((ptr = mmap(NULL,sizeof(struct allocmem),PROT_READ | PROT_WRITE , MAP_POPULATE | MAP_ANONYMOUS | MAP_PRIVATE,-1,0))==MAP_FAILED){
+    if((ptr = mmap(NULL,size,PROT_READ | PROT_WRITE , MAP_POPULATE | MAP_ANONYMOUS | MAP_PRIVATE,-1,0))==MAP_FAILED){
         ///Failed to make data, revert changes
         memlocs = findAndRemove(memlocs,NULL);
     }else{
